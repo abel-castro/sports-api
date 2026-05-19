@@ -89,7 +89,10 @@ def transform_provider_results_data_to_entities(
         away_team = teams.get("away").get("name")
         home_goals = goals.get("home")
         away_goals = goals.get("away")
-        matchday = int(match.get("league")["round"].split()[3])
+        try:
+            matchday = int(match.get("league")["round"].split()[3])
+        except (ValueError, IndexError, TypeError):
+            continue
 
         if teams and home_goals is not None and away_goals is not None and matchday:
             league_id = match.get("league").get("id")
