@@ -26,6 +26,9 @@ dev = [
 [project.scripts]
 sports-cli = "sports_api.cli.commands:app"
 
+[tool.fastapi]
+entrypoint = "sports_api.main:app"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
