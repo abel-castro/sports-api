@@ -27,7 +27,7 @@ dev = [
 sports-cli = "sports_api.cli.commands:app"
 
 [tool.fastapi]
-entrypoint = "sports_api.main:app"
+entrypoint = "main:app"
 
 [build-system]
 requires = ["hatchling"]
