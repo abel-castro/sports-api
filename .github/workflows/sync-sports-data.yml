@@ -1,0 +1,28 @@
+name: Sync sports data
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # daily at 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Import standings
+        run: |
+          curl -fsS \
+            --max-time 300 \
+            --retry 2 \
+            --retry-delay 30 \
+            -X POST https://sports-api.abelcastro.dev/internal/import/standings \
+            -H "X-Import-Token: ${{ secrets.IMPORT_TOKEN }}"
+
+      - name: Import results
+        run: |
+          curl -fsS \
+            --max-time 300 \
+            --retry 2 \
+            --retry-delay 30 \
+            -X POST https://sports-api.abelcastro.dev/internal/import/results \
+            -H "X-Import-Token: ${{ secrets.IMPORT_TOKEN }}"
