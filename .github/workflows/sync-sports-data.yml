@@ -2,7 +2,7 @@ name: Sync sports data
 
 on:
   schedule:
-    - cron: "0 6 * * *" # daily at 06:00 UTC
+    - cron: "0 1 * * *" # daily at 01:00 UTC / 03:00 MESZ
   workflow_dispatch:
 
 jobs:
