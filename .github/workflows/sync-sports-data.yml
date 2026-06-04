@@ -1,8 +1,10 @@
 name: Sync sports data
 
 on:
-  schedule:
-    - cron: "0 1 * * *" # daily at 01:00 UTC / 03:00 MESZ
+  # Schedule disabled temporarily: European leagues are finished for the season.
+  # Re-enable when the new season starts.
+  # schedule:
+  #   - cron: "0 1 * * *" # daily at 01:00 UTC / 03:00 MESZ
   workflow_dispatch:
 
 jobs:
